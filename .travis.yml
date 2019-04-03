@@ -13,5 +13,8 @@ addons:
   apt:
     packages:
       - docker-ce
+      - clang
+      - libicu-dev
+      - libpython2.7
 notifications:
   email: false
