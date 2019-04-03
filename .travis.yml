@@ -1,0 +1,15 @@
+language: swift
+osx_image: xcode10.1
+sudo: required
+services:
+  - docker
+after_success:
+  - bin/docker_push.sh
+  - bin/kubernetes_deploy.sh
+script: swift build
+addons:
+  apt:
+    packages:
+      - docker-ce
+notifications:
+  email: false
