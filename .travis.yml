@@ -6,10 +6,11 @@ services:
 after_success:
   - bin/docker_push.sh
   - bin/kubernetes_deploy.sh
-script: brew install libressl && swift test
+script: swift test
 addons:
-  apt:
+  homebrew:
     packages:
-      - docker-ce
+      - libressl
+      - docker
 notifications:
   email: false
