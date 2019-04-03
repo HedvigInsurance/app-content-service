@@ -12,7 +12,6 @@ script: swift test
 addons:
   apt:
     packages:
-      - libressl
       - docker-ce
 notifications:
   email: false
