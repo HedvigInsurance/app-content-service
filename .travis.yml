@@ -6,7 +6,7 @@ services:
 after_success:
   - bin/docker_push.sh
   - bin/kubernetes_deploy.sh
-script: swift build
+script: swift test
 addons:
   apt:
     packages:
