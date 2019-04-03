@@ -1,16 +1,18 @@
-language: swift
-osx_image: xcode10.1
+language: generic
 sudo: required
+dist: trusty
 services:
   - docker
+before_install:
+  - bin/before_install.sh
 after_success:
   - bin/docker_push.sh
   - bin/kubernetes_deploy.sh
 script: swift test
 addons:
-  homebrew:
+  apt:
     packages:
       - libressl
-      - docker
+      - docker-ce
 notifications:
   email: false
