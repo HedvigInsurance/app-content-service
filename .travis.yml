@@ -1,6 +1,19 @@
+os: linux
 language: generic
-sudo: required
 dist: trusty
+sudo: required
+env:
+  global:
+    - SWIFT_BRANCH=swift-4.2-branch
+    - SWIFT_VERSION=swift-4.2-DEVELOPMENT-SNAPSHOT-2018-05-30-a
+install:
+  - sudo apt-get install clang libicu-dev
+  - mkdir swift
+  - curl https://swift.org/builds/$SWIFT_BRANCH/ubuntu1404/$SWIFT_VERSION/$SWIFT_VERSION-ubuntu14.04.tar.gz -s | tar xz -C swift &> /dev/null
+  - export PATH="$(pwd)/swift/$SWIFT_VERSION-ubuntu14.04/usr/bin:$PATH"
+script:
+  - swift package update
+  - swift test
 services:
   - docker
 before_install:
@@ -13,8 +26,5 @@ addons:
   apt:
     packages:
       - docker-ce
-      - clang
-      - libicu-dev
-      - libpython2.7
 notifications:
   email: false
