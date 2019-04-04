@@ -21,8 +21,12 @@ services.register(middlewares)
 let app = try Application(config: Config.default(), environment: Environment.detect(), services: services)
 let router = try app.make(Router.self)
 
-router.get("health") { req in
-    return "OK"
+struct Health: Content {
+    let status = "pass"
+}
+
+router.get("health") { req -> Health in
+    return Health()
 }
 
 try GraphQLServer(schema: schema).run(router: router)
