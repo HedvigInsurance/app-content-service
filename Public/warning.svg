@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Warning</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="claims_snabbval_kris-copy" transform="translate(-24.000000, -128.000000)">
+            <g id="Warning" transform="translate(24.000000, 128.000000)">
+                <ellipse id="Oval" fill="#F9FAFB" fill-rule="nonzero" cx="15.804878" cy="16" rx="15.804878" ry="16"></ellipse>
+                <g id="Triangle" transform="translate(6.400000, 5.600000)">
+                    <rect id="Rectangle" fill="#C49C38" x="8.8" y="5.2" width="1.6" height="6.4"></rect>
+                    <path d="M1.17589462,17.6 C0.164805056,17.6 -0.280908692,16.9125291 0.184565764,16.0724582 L8.75248164,0.630053205 C9.2179561,-0.210017735 9.98093899,-0.210017735 10.446958,0.630053205 L19.014876,16.0724582 C19.4814439,16.9125291 19.0351813,17.6 18.0235472,17.6 L1.17589462,17.6 Z" id="Fill-1" stroke="#FFCC4D" stroke-width="1.6"></path>
+                    <circle id="Oval" fill="#FFCC4D" cx="9.6" cy="14" r="1.2"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

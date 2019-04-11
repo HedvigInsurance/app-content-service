@@ -12,11 +12,13 @@ import Vapor
 struct Icon: OutputType {
     let pdfUrl: String
     let svgUrl: String
+    let vectorDrawableUrl: String
     
     init(name: String) {
         let base = "/app-content-service/"
         self.pdfUrl = "\(base)\(name).pdf"
         self.svgUrl = "\(base)\(name).svg"
+        self.vectorDrawableUrl = "\(base)\(name).xml"
     }
 }
 
@@ -31,13 +33,19 @@ extension Icon: Schemable {
             try icon.field(
                 name: "pdfUrl",
                 type: String.self,
-                description: ""
+                description: "For iOS use"
             )
             
             try icon.field(
                 name: "svgUrl",
                 type: String.self,
-                description: ""
+                description: "For Web use"
+            )
+            
+            try icon.field(
+                name: "vectorDrawableUrl",
+                type: String.self,
+                description: "For Android use"
             )
         }
     }
