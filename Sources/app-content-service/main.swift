@@ -5,6 +5,7 @@ import SwiftGraphQLServer
 
 let schema = try Schema<Void, Void, MultiThreadedEventLoopGroup> { schema in
     try schema.query { query in
+        try HedvigColor.build(schema, query)
         try Icon.build(schema, query)
         try Localization.Locale.build(schema, query)
         try CommonClaim.build(schema, query)

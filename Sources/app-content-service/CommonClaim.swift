@@ -16,9 +16,12 @@ struct BulletPoint: OutputType {
     let description: String
 }
 
-protocol CommonClaimLayouts {}
+protocol CommonClaimLayouts {
+    var color: HedvigColor { get }
+}
 
 struct TitleAndBulletPoints: CommonClaimLayouts, OutputType {
+    let color: HedvigColor
     let icon: Icon
     let title: String
     let buttonTitle: String
@@ -27,6 +30,7 @@ struct TitleAndBulletPoints: CommonClaimLayouts, OutputType {
 }
 
 struct Emergency: CommonClaimLayouts, OutputType {
+    let color: HedvigColor
     let title: String
 }
 
@@ -65,6 +69,12 @@ extension CommonClaim: Schemable {
             titleAndBulletPoints.description = "A layout with a title and some bullet points"
             
             try titleAndBulletPoints.field(
+                name: "color",
+                type: HedvigColor.self,
+                description: "The color to show as the background"
+            )
+            
+            try titleAndBulletPoints.field(
                 name: "icon",
                 type: Icon.self,
                 description: ""
@@ -97,6 +107,12 @@ extension CommonClaim: Schemable {
         
         try schema.object(type: Emergency.self) { emergency in
             emergency.description = "The emergency layout shows a few actions for the user to rely on in the case of an emergency"
+            try emergency.field(
+                name: "color",
+                type: HedvigColor.self,
+                description: "The color to show as the background"
+            )
+            
             try emergency.field(
                 name: "title",
                 type: String.self,
@@ -147,6 +163,7 @@ extension CommonClaim: Schemable {
                     icon: icon,
                     title: "test",
                     layout: TitleAndBulletPoints(
+                        color: .darkPurple,
                         icon: icon,
                         title: "test",
                         buttonTitle: "Anmäl försenat baggage",
@@ -157,7 +174,7 @@ extension CommonClaim: Schemable {
                 CommonClaim(
                     icon: emergencyIcon,
                     title: "test",
-                    layout: Emergency(title: "test")
+                    layout: Emergency(color: .darkPurple, title: "test")
                 )
             ]
             
