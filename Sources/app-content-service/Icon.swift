@@ -50,3 +50,11 @@ extension Icon: Schemable {
         }
     }
 }
+
+extension Icon {
+    static let warning = Icon(name: "warning")
+    static let delayedLuggage = Icon(name: "delayed_luggage")
+    static let compensation = Icon(name: "compensation")
+    static let information = Icon(name: "information")
+    static let record = Icon(name: "record")
+}

@@ -154,25 +154,38 @@ extension CommonClaim: Schemable {
             name: "commonClaims",
             type: [CommonClaim].self
         ) { (_, arguments: CommonClaimArguments, _, eventLoop, _) in
-            
-            let icon = Icon(name: "warning")
-            let emergencyIcon = Icon(name: "warning")
-            
+
             let commonClaims = [
                 CommonClaim(
-                    icon: icon,
-                    title: "test",
+                    icon: .delayedLuggage,
+                    title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_TITLE, locale: arguments.locale),
                     layout: TitleAndBulletPoints(
                         color: .darkPurple,
-                        icon: icon,
-                        title: "test",
-                        buttonTitle: "Anmäl försenat baggage",
-                        claimFirstMessage: "Tråkigt att höra om ditt försenade baggage :(",
-                        bulletPoints: [BulletPoint(icon: icon, title: "test", description: "test")]
+                        icon: .delayedLuggage,
+                        title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_LAYOUT_TITLE, locale: arguments.locale),
+                        buttonTitle: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_LAYOUT_BUTTON_TITLE, locale: arguments.locale),
+                        claimFirstMessage: "TODO",
+                        bulletPoints: [
+                            BulletPoint(
+                                icon: .compensation,
+                                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_COMPENSATION_TITLE, locale: arguments.locale),
+                                description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_COMPENSATION_DESCRIPTION, locale: arguments.locale)
+                            ),
+                            BulletPoint(
+                                icon: .information,
+                                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_REGARD_TITLE, locale: arguments.locale),
+                                description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_REGARD_DESCRIPTION, locale: arguments.locale)
+                            ),
+                            BulletPoint(
+                                icon: .record,
+                                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_RECORD_TITLE, locale: arguments.locale),
+                                description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_RECORD_DESCRIPTION, locale: arguments.locale)
+                            )
+                        ]
                     )
                 ),
                 CommonClaim(
-                    icon: emergencyIcon,
+                    icon: Icon.warning,
                     title: "test",
                     layout: Emergency(color: .darkPurple, title: "test")
                 )
