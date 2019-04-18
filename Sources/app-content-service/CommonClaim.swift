@@ -77,7 +77,7 @@ extension CommonClaim {
             icon: .brokenPhone,
             title: String(key: .COMMON_CLAIM_BROKEN_PHONE_TITLE, locale: locale),
             layout: TitleAndBulletPoints(
-                color: .purple,
+                color: .turquoise,
                 icon: .brokenPhone,
                 title: String(key: .COMMON_CLAIM_BROKEN_PHONE_LAYOUT_TITLE, locale: locale),
                 buttonTitle: String(key: .COMMON_CLAIM_BROKEN_PHONE_LAYOUT_BUTTON_TITLE, locale: locale),
