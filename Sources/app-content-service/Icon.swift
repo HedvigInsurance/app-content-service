@@ -57,4 +57,5 @@ extension Icon {
     static let compensation = Icon(name: "compensation")
     static let information = Icon(name: "information")
     static let record = Icon(name: "record")
+    static let brokenPhone = Icon(name: "broken_phone")
 }

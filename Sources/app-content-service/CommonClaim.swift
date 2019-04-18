@@ -40,6 +40,70 @@ struct CommonClaim: OutputType {
     let layout: CommonClaimLayouts
 }
 
+extension CommonClaim {
+    static func delayedLuggage(locale: Localization.Locale) -> CommonClaim {
+        return CommonClaim(
+            icon: .delayedLuggage,
+            title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_TITLE, locale: locale),
+            layout: TitleAndBulletPoints(
+                color: .purple,
+                icon: .delayedLuggage,
+                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_LAYOUT_TITLE, locale: locale),
+                buttonTitle: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_LAYOUT_BUTTON_TITLE, locale: locale),
+                claimFirstMessage: "TODO",
+                bulletPoints: [
+                    BulletPoint(
+                        icon: .compensation,
+                        title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_COMPENSATION_TITLE, locale: locale),
+                        description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_COMPENSATION_DESCRIPTION, locale: locale)
+                    ),
+                    BulletPoint(
+                        icon: .information,
+                        title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_REGARD_TITLE, locale: locale),
+                        description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_REGARD_DESCRIPTION, locale: locale)
+                    ),
+                    BulletPoint(
+                        icon: .record,
+                        title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_RECORD_TITLE, locale: locale),
+                        description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_RECORD_DESCRIPTION, locale: locale)
+                    )
+                ]
+            )
+        )
+    }
+    
+    static func brokenPhone(locale: Localization.Locale) -> CommonClaim {
+        return CommonClaim(
+            icon: .brokenPhone,
+            title: String(key: .COMMON_CLAIM_BROKEN_PHONE_TITLE, locale: locale),
+            layout: TitleAndBulletPoints(
+                color: .purple,
+                icon: .brokenPhone,
+                title: String(key: .COMMON_CLAIM_BROKEN_PHONE_LAYOUT_TITLE, locale: locale),
+                buttonTitle: String(key: .COMMON_CLAIM_BROKEN_PHONE_LAYOUT_BUTTON_TITLE, locale: locale),
+                claimFirstMessage: "TODO",
+                bulletPoints: [
+                    BulletPoint(
+                        icon: .compensation,
+                        title: String(key: .COMMON_CLAIM_BROKEN_PHONE_BULLET_COMPENSATION_TITLE, locale: locale),
+                        description: String(key: .COMMON_CLAIM_BROKEN_PHONE_BULLET_COMPENSATION_DESCRIPTION, locale: locale)
+                    ),
+                    BulletPoint(
+                        icon: .information,
+                        title: String(key: .COMMON_CLAIM_BROKEN_PHONE_BULLET_REGARD_TITLE, locale: locale),
+                        description: String(key: .COMMON_CLAIM_BROKEN_PHONE_BULLET_REGARD_DESCRIPTION, locale: locale)
+                    ),
+                    BulletPoint(
+                        icon: .record,
+                        title: String(key: .COMMON_CLAIM_BROKEN_PHONE_BULLET_RECORD_TITLE, locale: locale),
+                        description: String(key: .COMMON_CLAIM_BROKEN_PHONE_BULLET_RECORD_DESCRIPTION, locale: locale)
+                    )
+                ]
+            )
+        )
+    }
+}
+
 extension CommonClaim: Schemable {
     static func build(
         _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
@@ -156,34 +220,8 @@ extension CommonClaim: Schemable {
         ) { (_, arguments: CommonClaimArguments, _, eventLoop, _) in
 
             let commonClaims = [
-                CommonClaim(
-                    icon: .delayedLuggage,
-                    title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_TITLE, locale: arguments.locale),
-                    layout: TitleAndBulletPoints(
-                        color: .darkPurple,
-                        icon: .delayedLuggage,
-                        title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_LAYOUT_TITLE, locale: arguments.locale),
-                        buttonTitle: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_LAYOUT_BUTTON_TITLE, locale: arguments.locale),
-                        claimFirstMessage: "TODO",
-                        bulletPoints: [
-                            BulletPoint(
-                                icon: .compensation,
-                                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_COMPENSATION_TITLE, locale: arguments.locale),
-                                description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_COMPENSATION_DESCRIPTION, locale: arguments.locale)
-                            ),
-                            BulletPoint(
-                                icon: .information,
-                                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_REGARD_TITLE, locale: arguments.locale),
-                                description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_REGARD_DESCRIPTION, locale: arguments.locale)
-                            ),
-                            BulletPoint(
-                                icon: .record,
-                                title: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_RECORD_TITLE, locale: arguments.locale),
-                                description: String(key: .COMMON_CLAIM_DELAYED_LUGGAGE_BULLET_RECORD_DESCRIPTION, locale: arguments.locale)
-                            )
-                        ]
-                    )
-                ),
+                delayedLuggage(locale: arguments.locale),
+                brokenPhone(locale: arguments.locale),
                 CommonClaim(
                     icon: Icon.warning,
                     title: "test",
