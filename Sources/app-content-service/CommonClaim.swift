@@ -102,6 +102,17 @@ extension CommonClaim {
             )
         )
     }
+    
+    static func emergency(locale: Localization.Locale) -> CommonClaim {
+        return CommonClaim(
+            icon: .warning,
+            title: String(key: .COMMON_CLAIM_EMERGENCY_TITLE, locale: locale),
+            layout: Emergency(
+                color: .yellow,
+                title: String(key: .COMMON_CLAIM_EMERGENCY_LAYOUT_TITLE, locale: locale)
+            )
+        )
+    }
 }
 
 extension CommonClaim: Schemable {
@@ -220,13 +231,9 @@ extension CommonClaim: Schemable {
         ) { (_, arguments: CommonClaimArguments, _, eventLoop, _) in
 
             let commonClaims = [
+                emergency(locale: arguments.locale),
                 delayedLuggage(locale: arguments.locale),
-                brokenPhone(locale: arguments.locale),
-                CommonClaim(
-                    icon: Icon.warning,
-                    title: "test",
-                    layout: Emergency(color: .darkPurple, title: "test")
-                )
+                brokenPhone(locale: arguments.locale)
             ]
             
             return eventLoop.next().newSucceededFuture(result: commonClaims)

@@ -22,6 +22,7 @@ enum HedvigColor: String, InputType, OutputType, CaseIterable {
     case black = "Black"
     case offBlack = "OffBlack"
     case offWhite = "OffWhite"
+    case yellow = "Yellow"
     
     init(map: Map) throws {
         guard
