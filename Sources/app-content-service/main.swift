@@ -31,7 +31,11 @@ router.get("health") { req -> Health in
     return Health()
 }
 
-try GraphQLServer(schema: schema).run(router: router)
+try GraphQLServer(
+    schema: schema,
+    getContext: { _ in () },
+    getRootValue: { _ in () }
+).run(router: router)
 
 try app.run()
 
