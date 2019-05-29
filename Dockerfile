@@ -4,7 +4,7 @@ RUN mkdir /app/bin
 COPY . ./
 RUN \
 apt-get update && \
-apt-get install unzip wget -y && \
+apt-get install unzip wget curl libssl-dev zlib1g-dev -y && \
 rm -rf /var/lib/apt/lists/*
 RUN curl -LOk -o ./0.40.5.zip "https://github.com/nicklockwood/SwiftFormat/archive/0.40.5.zip"
 RUN unzip ./0.40.5.zip
