@@ -35,12 +35,12 @@ struct SemVer {
 }
 
 struct NewsRepository {
-    static func findSince(version: SemVer, platform: Platform) -> [News] {
+    static func findSince(version: SemVer, platform: Platform, locale: Localization.Locale) -> [News] {
         if (platform == .Android) {
-            return NewsRepository.findIn(newsCollection: News.androidNews, version: version)
+            return NewsRepository.findIn(newsCollection: News.androidNews(locale: locale), version: version)
         }
         if (platform == .iOS) {
-            return NewsRepository.findIn(newsCollection: News.iOSNews, version: version)
+            return NewsRepository.findIn(newsCollection: News.iOSNews(locale: locale), version: version)
         }
         return []
     }
@@ -65,23 +65,29 @@ struct NewsRepository {
 }
 
 extension News {
-    static let iOSNews = [
-        (
-            SemVer(major: 2, minor: 9, patch: 0),
-            [News.referrals]
-        )
-    ]
+    static func iOSNews(locale: Localization.Locale) -> [(SemVer, [News])] {
+        return [
+            (
+                SemVer(major: 2, minor: 9, patch: 0),
+                [News.referrals(locale: locale)]
+            )
+        ]
+    }
     
-    static let androidNews = [
-        (
-            SemVer(major: 2, minor: 9, patch: 0),
-            [News.referrals]
-        )
-    ]
+    static func androidNews(locale: Localization.Locale) -> [(SemVer, [News])] {
+        return [
+            (
+                SemVer(major: 2, minor: 9, patch: 0),
+                [News.referrals(locale: locale)]
+            )
+        ]
+    }
     
-    static let referrals = News(
-        illustration: Icon.moneyRain,
-        title: "NEWS_REFERRALS_TITLE", // TODO remake this obviously
-        paragraph: "NEWS_REFERRALS_PARAGRAPH"
-    )
+    static func referrals(locale: Localization.Locale) -> News {
+        return News(
+            illustration: Icon.moneyRain,
+            title: String(key: .NEWS_REFERRALS_HEADLINE, locale: locale),
+            paragraph: String(key: .NEWS_REFERRALS_BODY, locale: locale)
+        )
+    }
 }

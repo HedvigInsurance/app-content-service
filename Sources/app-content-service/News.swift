@@ -40,6 +40,7 @@ extension Platform: InputType, OutputType {
 struct NewsArguments: Arguments {
     let platform: Platform
     let sinceVersion: String
+    let locale: Localization.Locale
 }
 
 extension News: Schemable {
@@ -89,7 +90,8 @@ extension News: Schemable {
                 .newSucceededFuture(
                     result: NewsRepository.findSince(
                         version: try SemVer.parse(version: arguments.sinceVersion),
-                        platform: arguments.platform
+                        platform: arguments.platform,
+                        locale: arguments.locale
                     )
                 )
         }
