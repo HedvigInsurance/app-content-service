@@ -58,4 +58,6 @@ extension Icon {
     static let information = Icon(name: "information")
     static let record = Icon(name: "record")
     static let brokenPhone = Icon(name: "broken_phone")
+    
+    static let moneyRain = Icon(name: "money_rain")
 }
