@@ -7,33 +7,6 @@
 
 import Foundation
 
-enum SemVerError: Error {
-    case parse
-}
-
-struct SemVer {
-    let major: Int
-    let minor: Int
-    let patch: Int
-    
-    static func parse(version: String) throws -> SemVer {
-        let parts = version.split(separator: ".")
-
-        
-        guard let major = Int(String(parts[0])),
-            let minor = Int(String(parts[1])),
-            let patch = Int(String(parts[2])) else {
-            throw SemVerError.parse
-        }
-        
-        return SemVer(
-            major: major,
-            minor: minor,
-            patch: patch
-        )
-    }
-}
-
 struct NewsRepository {
     static func findSince(version: SemVer, platform: Platform, locale: Localization.Locale) -> [News] {
         if (platform == .Android) {
@@ -58,9 +31,9 @@ struct NewsRepository {
                     return true
                 }
                 return false
-            }.flatMap { (_, news) -> [News] in
+            }.flatMap { (_, news) in
                 return news
-        }
+            }
     }
 }
 

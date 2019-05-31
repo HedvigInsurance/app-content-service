@@ -15,28 +15,6 @@ struct News: OutputType {
     let paragraph: String
 }
 
-enum Platform: String, CaseIterable {
-    case Android
-    case iOS
-}
-
-extension Platform: InputType, OutputType {
-    init(map: Map) throws {
-        guard
-            let name = map.string,
-            let platform = Platform(rawValue: name)
-        else {
-                throw MapError.incompatibleType
-        }
-        
-        self = platform
-    }
-    
-    func asMap() throws -> Map {
-        return rawValue.map
-    }
-}
-
 struct NewsArguments: Arguments {
     let platform: Platform
     let sinceVersion: String
