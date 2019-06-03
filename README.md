@@ -10,3 +10,10 @@ Serves content for the apps.
 4. `swift package update`
 5. `swift package generate-xcodeproj`
 6. `open app-content-service.xcodeproj`
+
+## Add assets
+
+1. Install `cairosvg`: `pip3 install cairosvg`
+2. Add the asset as SVG to the `Public`-directory
+3. Run `cairosvg -o EXAMPLE_ASSET_NAME.pdf EXAMPLE_ASSET_NAME.svg`
+4. TODO Add procedure for VectorDrawables as well
