@@ -58,7 +58,7 @@ extension News {
     
     static func referrals(locale: Localization.Locale) -> News {
         return News(
-            illustration: Icon.moneyRain,
+            illustration: Icon.bonusRain,
             title: String(key: .NEWS_REFERRALS_HEADLINE, locale: locale),
             paragraph: String(key: .NEWS_REFERRALS_BODY, locale: locale)
         )

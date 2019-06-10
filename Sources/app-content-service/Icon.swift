@@ -59,5 +59,5 @@ extension Icon {
     static let record = Icon(name: "record")
     static let brokenPhone = Icon(name: "broken_phone")
     
-    static let moneyRain = Icon(name: "referrals_money_rain")
+    static let bonusRain = Icon(name: "referrals_bonus_rain")
 }
