@@ -12,14 +12,13 @@ struct SemVer {
     let minor: Int
     let patch: Int
     
-    static func parse(version: String) throws -> SemVer {
+    static func parse(version: String) -> SemVer {
         let parts = version.split(separator: ".")
-        
         
         guard let major = Int(String(parts[0])),
             let minor = Int(String(parts[1])),
             let patch = Int(String(parts[2])) else {
-                throw SemVerError.parse
+                return SemVer(major: 0, minor: 0, patch: 0)
         }
         
         return SemVer(

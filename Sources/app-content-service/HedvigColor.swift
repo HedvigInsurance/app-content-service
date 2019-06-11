@@ -10,7 +10,7 @@ import GraphQL
 import Graphiti
 import Vapor
 
-enum HedvigColor: String, InputType, OutputType, CaseIterable {
+enum HedvigColor: String, Codable, CaseIterable {
     case pink = "Pink"
     case turquoise = "Turquoise"
     case purple = "Purple"
@@ -23,36 +23,24 @@ enum HedvigColor: String, InputType, OutputType, CaseIterable {
     case offBlack = "OffBlack"
     case offWhite = "OffWhite"
     case yellow = "Yellow"
-    
-    init(map: Map) throws {
-        guard
-            let name = map.string,
-            let color = HedvigColor(rawValue: name)
-            else {
-                throw MapError.incompatibleType
-        }
-        
-        self = color
-    }
-    
-    func asMap() throws -> Map {
-        return rawValue.map
-    }
 }
 
+
 extension HedvigColor: Schemable {
-    static func build(
-        _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
-        _ query: ObjectTypeBuilder<Void, Void, MultiThreadedEventLoopGroup, Void>
-    ) throws {
-        try schema.enum(type: HedvigColor.self) { hedvigColor in
-            try HedvigColor.allCases.forEach { hedvigColorEnumValue in
-                try hedvigColor.value(
-                    name: hedvigColorEnumValue.rawValue,
-                    value: hedvigColorEnumValue,
-                    description: ""
-                )
-            }
+    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+        Enum(HedvigColor.self) {
+            Value(.pink)
+            Value(.turquoise)
+            Value(.purple)
+            Value(.darkPurple)
+            Value(.blackPurple)
+            Value(.darkGray)
+            Value(.lightGray)
+            Value(.white)
+            Value(.black)
+            Value(.offBlack)
+            Value(.offWhite)
+            Value(.yellow)
         }
     }
 }

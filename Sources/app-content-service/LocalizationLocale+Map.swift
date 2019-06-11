@@ -10,36 +10,13 @@ import GraphQL
 import Graphiti
 import Vapor
 
-extension Localization.Locale: InputType, OutputType {
-    init(map: Map) throws {
-        guard
-            let name = map.string,
-            let locale = Localization.Locale(rawValue: name)
-            else {
-                throw MapError.incompatibleType
-        }
-        
-        self = locale
-    }
-    
-    func asMap() throws -> Map {
-        return rawValue.map
-    }
-}
+extension Localization.Locale: Codable {}
 
 extension Localization.Locale: Schemable {
-    static func build(
-        _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
-        _ query: ObjectTypeBuilder<Void, Void, MultiThreadedEventLoopGroup, Void>
-    ) throws {
-        try schema.enum(type: Localization.Locale.self) { language in
-            try Localization.Locale.allCases.forEach { languageEnumValue in
-                try language.value(
-                    name: languageEnumValue.rawValue,
-                    value: languageEnumValue,
-                    description: ""
-                )
-            }
+    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+        Enum(Localization.Locale.self) {
+            Value(.sv_SE)
+            Value(.en_SE)
         }
     }
 }

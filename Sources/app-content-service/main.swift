@@ -3,13 +3,16 @@ import Graphiti
 import Vapor
 import SwiftGraphQLServer
 
-let schema = try Schema<Void, Void, MultiThreadedEventLoopGroup> { schema in
-    try schema.query { query in
-        try HedvigColor.build(schema, query)
-        try Icon.build(schema, query)
-        try Localization.Locale.build(schema, query)
-        try CommonClaim.build(schema, query)
-        try News.build(schema, query)
+let schema = Schema<AppContentAPI, Request> {
+    Icon.build()
+    HedvigColor.build()
+    Localization.Locale.build()
+    CommonClaim.build()
+    News.build()
+    
+    Query {
+        Field(.commonClaims, at: AppContentAPI.getCommonClaims)
+        Field(.news, at: AppContentAPI.getNews)
     }
 }
 
@@ -32,10 +35,12 @@ router.get("health") { req -> Health in
     return Health()
 }
 
+let api = AppContentAPI()
+
 try GraphQLServer(
     schema: schema,
-    getContext: { _ in () },
-    getRootValue: { _ in () }
+    getContext: { $0 },
+    getRootValue: { _ in api }
 ).run(router: router)
 
 try app.run()

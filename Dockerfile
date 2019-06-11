@@ -1,4 +1,4 @@
-FROM swift:5.0
+FROM norionomura/swift:swift-5.1-branch
 WORKDIR /app
 RUN mkdir /app/bin
 COPY . ./

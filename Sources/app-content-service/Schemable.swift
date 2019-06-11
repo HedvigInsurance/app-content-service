@@ -10,8 +10,5 @@ import Graphiti
 import Vapor
 
 protocol Schemable {
-    static func build(
-        _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
-        _ query: ObjectTypeBuilder<Void, Void, MultiThreadedEventLoopGroup, Void>
-    ) throws
+    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request>
 }

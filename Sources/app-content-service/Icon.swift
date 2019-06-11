@@ -9,10 +9,18 @@ import Foundation
 import Graphiti
 import Vapor
 
-struct Icon: OutputType {
+struct Icon: Codable, FieldKeyProvider {
     let pdfUrl: String
     let svgUrl: String
     let vectorDrawableUrl: String
+    
+    typealias FieldKey = FieldKeys
+    
+    enum FieldKeys : String {
+        case pdfUrl
+        case svgUrl
+        case vectorDrawableUrl
+    }
     
     init(name: String) {
         let base = "/app-content-service/"
@@ -23,31 +31,12 @@ struct Icon: OutputType {
 }
 
 extension Icon: Schemable {
-    static func build(
-        _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
-        _ query: ObjectTypeBuilder<Void, Void, MultiThreadedEventLoopGroup, Void>
-    ) throws {
-        try schema.object(type: Icon.self) { icon in
-            icon.description = "A vectorized image to show to the user"
-            
-            try icon.field(
-                name: "pdfUrl",
-                type: String.self,
-                description: "For iOS use"
-            )
-            
-            try icon.field(
-                name: "svgUrl",
-                type: String.self,
-                description: "For Web use"
-            )
-            
-            try icon.field(
-                name: "vectorDrawableUrl",
-                type: String.self,
-                description: "For Android use"
-            )
-        }
+    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+        Type(Icon.self) {
+            Field(.pdfUrl, at: \.pdfUrl).description("For iOS use")
+            Field(.svgUrl, at: \.svgUrl).description("For Web use")
+            Field(.vectorDrawableUrl, at: \.vectorDrawableUrl).description("For Android use")
+        }.description("A vectorized image to show to the user")
     }
 }
 
