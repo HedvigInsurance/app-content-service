@@ -27,7 +27,7 @@ enum HedvigColor: String, Codable, CaseIterable {
 
 
 extension HedvigColor: Schemable {
-    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+    @AppSchemaBuilder static func build() -> AppComponent {
         Enum(HedvigColor.self) {
             Value(.pink)
             Value(.turquoise)

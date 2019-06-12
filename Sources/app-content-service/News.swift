@@ -24,7 +24,7 @@ struct News: Codable, FieldKeyProvider {
 }
 
 extension News: Schemable {
-    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+    @AppSchemaBuilder static func build() -> AppComponent {
         Type(News.self) {
             Field(.illustration, at: \.illustration).description("Illustration shown for the page")
             Field(.title, at: \.title).description("Text key for the title of the page")
@@ -35,20 +35,5 @@ extension News: Schemable {
             Value(.iOS)
             Value(.Android)
         }
-        
-//        try query.field(
-//            name: "news",
-//            type: [News].self
-//        ) { (_, arguments: NewsArguments, _, eventLoop, _) in
-//            return eventLoop
-//                .next()
-//                .newSucceededFuture(
-//                    result: NewsRepository.findSince(
-//                        version: try SemVer.parse(version: arguments.sinceVersion),
-//                        platform: arguments.platform,
-//                        locale: arguments.locale
-//                    )
-//                )
-//        }
     }
 }

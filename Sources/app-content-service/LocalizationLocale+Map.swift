@@ -13,7 +13,7 @@ import Vapor
 extension Localization.Locale: Codable {}
 
 extension Localization.Locale: Schemable {
-    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+    @AppSchemaBuilder static func build() -> AppComponent {
         Enum(Localization.Locale.self) {
             Value(.sv_SE)
             Value(.en_SE)

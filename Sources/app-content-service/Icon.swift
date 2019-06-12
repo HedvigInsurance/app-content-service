@@ -31,7 +31,7 @@ struct Icon: Codable, FieldKeyProvider {
 }
 
 extension Icon: Schemable {
-    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+    @AppSchemaBuilder static func build() -> AppComponent {
         Type(Icon.self) {
             Field(.pdfUrl, at: \.pdfUrl).description("For iOS use")
             Field(.svgUrl, at: \.svgUrl).description("For Web use")

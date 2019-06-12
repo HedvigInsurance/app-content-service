@@ -204,124 +204,27 @@ extension CommonClaim: Schemable {
         }
         
         Type(TitleAndBulletPoints.self) {
-            Field(.color, at: \.color)
+            Field(.color, at: \.color).description("The color to show as the background")
             Field(.icon, at: \.icon)
             Field(.title, at: \.title)
             Field(.buttonTitle, at: \.buttonTitle)
             Field(.claimFirstMessage, at: \.claimFirstMessage)
             Field(.bulletPoints, at: \.bulletPoints)
-        }
+        }.description("A layout with a title and some bullet points")
         
         Type(Emergency.self) {
             Field(.color, at: \.color)
             Field(.title, at: \.title)
-        }
+        }.description("The emergency layout shows a few actions for the user to rely on in the case of an emergency")
         
         Union(CommonClaimLayouts.self, members: TitleAndBulletPoints.self, Emergency.self)
         
         Type(CommonClaim.self) {
-            Field(.icon, at: \.icon)
-            Field(.title, at: \.title)
-            Field(.layout, at: \.layout)
-        }
-        
-//        try schema.object(type: TitleAndBulletPoints.self) { titleAndBulletPoints in
-//            titleAndBulletPoints.description = "A layout with a title and some bullet points"
-//
-//            try titleAndBulletPoints.field(
-//                name: "color",
-//                type: HedvigColor.self,
-//                description: "The color to show as the background"
-//            )
-//
-//            try titleAndBulletPoints.field(
-//                name: "icon",
-//                type: Icon.self,
-//                description: ""
-//            )
-//
-//            try titleAndBulletPoints.field(
-//                name: "title",
-//                type: String.self,
-//                description: ""
-//            )
-//
-//            try titleAndBulletPoints.field(
-//                name: "buttonTitle",
-//                type: String.self,
-//                description: ""
-//            )
-//
-//            try titleAndBulletPoints.field(
-//                name: "claimFirstMessage",
-//                type: String.self,
-//                description: ""
-//            )
-//
-//            try titleAndBulletPoints.field(
-//                name: "bulletPoints",
-//                type: [BulletPoint].self,
-//                description: ""
-//            )
-//        }
-//
-//        try schema.object(type: Emergency.self) { emergency in
-//            emergency.description = "The emergency layout shows a few actions for the user to rely on in the case of an emergency"
-//            try emergency.field(
-//                name: "color",
-//                type: HedvigColor.self,
-//                description: "The color to show as the background"
-//            )
-//
-//            try emergency.field(
-//                name: "title",
-//                type: String.self,
-//                description: ""
-//            )
-//        }
-//
-//        try schema.union(type: CommonClaimLayouts.self) { union in
-//            union.types = [TitleAndBulletPoints.self, Emergency.self]
-//        }
-//
-//        try schema.object(type: CommonClaim.self) { commonClaim in
-//            commonClaim.description = "A list of claim types that are common to show for the user"
-//
-//            try commonClaim.field(
-//                name: "title",
-//                type: String.self,
-//                description: "A title to show on the card of the common claim"
-//            )
-//
-//            try commonClaim.field(
-//                name: "layout",
-//                type: CommonClaimLayouts.self,
-//                description: "The layout to use for the subpage regarding the common claim"
-//            )
-//
-//            try commonClaim.field(
-//                name: "icon",
-//                type: Icon.self,
-//                description: "An icon to show on the card of the common claim"
-//            )
-//        }
-//
-//        struct CommonClaimArguments: Arguments {
-//            let locale: Localization.Locale
-//        }
-//
-//        try query.field(
-//            name: "commonClaims",
-//            type: [CommonClaim].self
-//        ) { (_, arguments: CommonClaimArguments, _, eventLoop, _) in
-//
-//            let commonClaims = [
-//                emergency(locale: arguments.locale),
-//                delayedLuggage(locale: arguments.locale),
-//                brokenPhone(locale: arguments.locale)
-//            ]
-//
-//            return eventLoop.next().newSucceededFuture(result: commonClaims)
-//        }
+            Field(.icon, at: \.icon).description("An icon to show on the card of the common claim")
+            Field(.title, at: \.title).description("A title to show on the card of the common claim")
+            Field(.layout, at: \.layout).description(
+                "The layout to use for the subpage regarding the common claim"
+            )
+        }.description("A list of claim types that are common to show for the user")
     }
 }
