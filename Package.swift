@@ -6,9 +6,9 @@ import PackageDescription
 let package = Package(
     name: "app-content-service",
     dependencies: [
-        .package(url: "https://github.com/HedvigInsurance/SwiftGraphQLServer.git", from: "3.1.0"),
-        .package(url: "https://github.com/HedvigInsurance/Graphiti.git", from: "0.13.0"),
-        .package(url: "https://github.com/vapor/vapor.git", from: "3.3.0")
+        .package(url: "https://github.com/HedvigInsurance/SwiftGraphQLServer.git", from: "4.2.0"),
+        .package(url: "https://github.com/HedvigInsurance/Graphiti.git", from: "0.17.0"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-alpha")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

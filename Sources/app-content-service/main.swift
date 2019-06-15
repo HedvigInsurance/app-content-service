@@ -16,32 +16,41 @@ let schema = Schema<AppContentAPI, Request> {
     }
 }
 
-var services = Services.default()
-services.register(AssetsMiddleware.self)
-
-var middlewares = MiddlewareConfig.default()
-middlewares.use(AssetsMiddleware.self)
-
-services.register(middlewares)
-
-let app = try Application(config: Config.default(), environment: Environment.detect(), services: services)
-let router = try app.make(Router.self)
-
 struct Health: Content {
     let status = "pass"
 }
 
-router.get("health") { req -> Health in
-    return Health()
+public func routes(_ r: Routes, _ c: Container) throws {
+    r.get("health") { req -> Health in
+        Health()
+    }
+    
+    let api = AppContentAPI()
+    
+    try GraphQLServer(
+        schema: schema,
+        getContext: { $0 },
+        getRootValue: { _ in api }
+    ).run(r)
 }
 
-let api = AppContentAPI()
-
-try GraphQLServer(
-    schema: schema,
-    getContext: { $0 },
-    getRootValue: { _ in api }
-).run(router: router)
-
-try app.run()
+try Application(environment: .detect(), configure: { (services: inout Services) in
+    services.register(AssetsMiddleware.self) { c in
+        return try .init(
+            publicDirectory: c.make(DirectoryConfiguration.self).publicDirectory,
+            fileio: c.make()
+        )
+    }
+    
+    services.register(MiddlewareConfiguration.self) { c in
+        var middleware = MiddlewareConfiguration()
+        try middleware.use(c.make(AssetsMiddleware.self))
+        try middleware.use(c.make(ErrorMiddleware.self))
+        return middleware
+    }
+    
+    services.extend(Routes.self) { r, c in
+        try routes(r, c)
+    }
+}).run()
 
