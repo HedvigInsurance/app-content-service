@@ -10,34 +10,114 @@ import Graphiti
 import GraphQL
 import Vapor
 
-struct BulletPoint: OutputType {
+struct BulletPoint: Codable, FieldKeyProvider {
     let icon: Icon
     let title: String
     let description: String
+    
+    typealias FieldKey = FieldKeys
+    
+    enum FieldKeys : String {
+        case icon
+        case title
+        case description
+    }
 }
 
-protocol CommonClaimLayouts {
+protocol CommonClaimLayouts: Codable {
     var color: HedvigColor { get }
 }
 
-struct TitleAndBulletPoints: CommonClaimLayouts, OutputType {
+struct TitleAndBulletPoints: Codable, CommonClaimLayouts, FieldKeyProvider {
     let color: HedvigColor
     let icon: Icon
     let title: String
     let buttonTitle: String
     let claimFirstMessage: String
     let bulletPoints: [BulletPoint]
+    
+    typealias FieldKey = FieldKeys
+    
+    enum FieldKeys : String {
+        case color
+        case icon
+        case title
+        case buttonTitle
+        case claimFirstMessage
+        case bulletPoints
+    }
 }
 
-struct Emergency: CommonClaimLayouts, OutputType {
+struct Emergency: Codable, CommonClaimLayouts, FieldKeyProvider {
     let color: HedvigColor
     let title: String
+    
+    typealias FieldKey = FieldKeys
+    
+    enum FieldKeys : String {
+        case color
+        case title
+    }
 }
 
-struct CommonClaim: OutputType {
+enum CommonClaimError: Error {
+    case parseError
+}
+
+struct CommonClaim: Codable, FieldKeyProvider {
     let icon: Icon
     let title: String
     let layout: CommonClaimLayouts
+    
+    typealias FieldKey = FieldKeys
+    
+    enum FieldKeys : String {
+        case icon
+        case title
+        case layout
+    }
+    
+    enum CodeKeys: CodingKey
+    {
+        case icon
+        case title
+        case layout
+    }
+    
+    init(icon: Icon, title: String, layout: CommonClaimLayouts) {
+        self.icon = icon
+        self.title = title
+        self.layout = layout
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodeKeys.self)
+    
+        if let emergency = try? container.decode(Emergency.self, forKey: .layout) {
+            layout = emergency
+        } else if let titleAndBulletPoints = try? container.decode(TitleAndBulletPoints.self, forKey: .layout) {
+            layout = titleAndBulletPoints
+        } else {
+            throw CommonClaimError.parseError
+        }
+        
+        icon = try container.decode(Icon.self, forKey: .icon)
+        title = try container.decode(String.self, forKey: .title)
+    }
+    
+    func encode(to encoder: Encoder) throws
+    {
+        var container = encoder.container(keyedBy: CodeKeys.self)
+        try container.encode(title, forKey: .title)
+        
+        if let emergency = layout as? Emergency {
+            try container.encode(emergency, forKey: .layout)
+        } else if let titleAndBulletPoints = layout as? TitleAndBulletPoints {
+            try container.encode(titleAndBulletPoints, forKey: .layout)
+        }
+        
+        try container.encode(icon, forKey: .icon)
+    }
 }
 
 extension CommonClaim {
@@ -116,127 +196,35 @@ extension CommonClaim {
 }
 
 extension CommonClaim: Schemable {
-    static func build(
-        _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
-        _ query: ObjectTypeBuilder<Void, Void, MultiThreadedEventLoopGroup, Void>
-    ) throws {
-        try schema.object(type: BulletPoint.self) { bulletPoint in
-            try bulletPoint.field(
-                name: "title",
-                type: String.self,
-                description: ""
-            )
-            
-            try bulletPoint.field(
-                name: "description",
-                type: String.self,
-                description: ""
-            )
-            
-            try bulletPoint.field(
-                name: "icon",
-                type: Icon.self,
-                description: ""
-            )
+    @SchemaBuilder<AppContentAPI, Request> static func build() -> SchemaComponent<AppContentAPI, Request> {
+        Type(BulletPoint.self) {
+            Field(.title, at: \.title)
+            Field(.description, at: \.description)
+            Field(.icon, at: \.icon)
         }
         
-        try schema.object(type: TitleAndBulletPoints.self) { titleAndBulletPoints in
-            titleAndBulletPoints.description = "A layout with a title and some bullet points"
-            
-            try titleAndBulletPoints.field(
-                name: "color",
-                type: HedvigColor.self,
-                description: "The color to show as the background"
-            )
-            
-            try titleAndBulletPoints.field(
-                name: "icon",
-                type: Icon.self,
-                description: ""
-            )
-            
-            try titleAndBulletPoints.field(
-                name: "title",
-                type: String.self,
-                description: ""
-            )
-            
-            try titleAndBulletPoints.field(
-                name: "buttonTitle",
-                type: String.self,
-                description: ""
-            )
-            
-            try titleAndBulletPoints.field(
-                name: "claimFirstMessage",
-                type: String.self,
-                description: ""
-            )
-            
-            try titleAndBulletPoints.field(
-                name: "bulletPoints",
-                type: [BulletPoint].self,
-                description: ""
-            )
-        }
+        Type(TitleAndBulletPoints.self) {
+            Field(.color, at: \.color).description("The color to show as the background")
+            Field(.icon, at: \.icon)
+            Field(.title, at: \.title)
+            Field(.buttonTitle, at: \.buttonTitle)
+            Field(.claimFirstMessage, at: \.claimFirstMessage)
+            Field(.bulletPoints, at: \.bulletPoints)
+        }.description("A layout with a title and some bullet points")
         
-        try schema.object(type: Emergency.self) { emergency in
-            emergency.description = "The emergency layout shows a few actions for the user to rely on in the case of an emergency"
-            try emergency.field(
-                name: "color",
-                type: HedvigColor.self,
-                description: "The color to show as the background"
-            )
-            
-            try emergency.field(
-                name: "title",
-                type: String.self,
-                description: ""
-            )
-        }
+        Type(Emergency.self) {
+            Field(.color, at: \.color)
+            Field(.title, at: \.title)
+        }.description("The emergency layout shows a few actions for the user to rely on in the case of an emergency")
         
-        try schema.union(type: CommonClaimLayouts.self) { union in
-            union.types = [TitleAndBulletPoints.self, Emergency.self]
-        }
+        Union(CommonClaimLayouts.self, members: TitleAndBulletPoints.self, Emergency.self)
         
-        try schema.object(type: CommonClaim.self) { commonClaim in
-            commonClaim.description = "A list of claim types that are common to show for the user"
-            
-            try commonClaim.field(
-                name: "title",
-                type: String.self,
-                description: "A title to show on the card of the common claim"
+        Type(CommonClaim.self) {
+            Field(.icon, at: \.icon).description("An icon to show on the card of the common claim")
+            Field(.title, at: \.title).description("A title to show on the card of the common claim")
+            Field(.layout, at: \.layout).description(
+                "The layout to use for the subpage regarding the common claim"
             )
-            
-            try commonClaim.field(
-                name: "layout",
-                type: CommonClaimLayouts.self,
-                description: "The layout to use for the subpage regarding the common claim"
-            )
-            
-            try commonClaim.field(
-                name: "icon",
-                type: Icon.self,
-                description: "An icon to show on the card of the common claim"
-            )
-        }
-        
-        struct CommonClaimArguments: Arguments {
-            let locale: Localization.Locale
-        }
-        
-        try query.field(
-            name: "commonClaims",
-            type: [CommonClaim].self
-        ) { (_, arguments: CommonClaimArguments, _, eventLoop, _) in
-
-            let commonClaims = [
-                emergency(locale: arguments.locale),
-                delayedLuggage(locale: arguments.locale),
-                brokenPhone(locale: arguments.locale)
-            ]
-            
-            return eventLoop.next().newSucceededFuture(result: commonClaims)
-        }
+        }.description("A list of claim types that are common to show for the user")
     }
 }

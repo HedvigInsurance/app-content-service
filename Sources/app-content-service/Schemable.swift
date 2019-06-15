@@ -9,9 +9,9 @@ import Foundation
 import Graphiti
 import Vapor
 
+typealias AppSchemaBuilder = SchemaBuilder<AppContentAPI, Request>
+typealias AppComponent = SchemaComponent<AppContentAPI, Request>
+
 protocol Schemable {
-    static func build(
-        _ schema: SchemaBuilder<Void, Void, MultiThreadedEventLoopGroup>,
-        _ query: ObjectTypeBuilder<Void, Void, MultiThreadedEventLoopGroup, Void>
-    ) throws
+    @AppSchemaBuilder static func build() -> AppComponent
 }
