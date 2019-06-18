@@ -49,6 +49,17 @@ try Application(environment: .detect(), configure: { (services: inout Services) 
         return middleware
     }
     
+    services.register(HTTPServer.Configuration.self) { c in
+        switch c.environment {
+        case Environment.production:
+            return HTTPServer.Configuration.init(hostname: "0.0.0.0", port: 8080)
+        case Environment.development:
+            return HTTPServer.Configuration.init(hostname: "127.0.0.1", port: 8080)
+        default:
+            return HTTPServer.Configuration.init(hostname: "0.0.0.0", port: 8080)
+        }
+    }
+    
     services.extend(Routes.self) { r, c in
         try routes(r, c)
     }
