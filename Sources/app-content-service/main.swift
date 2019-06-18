@@ -50,13 +50,15 @@ try Application(environment: .detect(), configure: { (services: inout Services) 
     }
     
     services.register(HTTPServer.Configuration.self) { c in
+        let port = Int(ProcessInfo.processInfo.environment["PORT"] ?? "8080")!
+        
         switch c.environment {
         case Environment.production:
-            return HTTPServer.Configuration.init(hostname: "0.0.0.0", port: 8080)
+            return HTTPServer.Configuration.init(hostname: "0.0.0.0", port: port)
         case Environment.development:
-            return HTTPServer.Configuration.init(hostname: "127.0.0.1", port: 8080)
+            return HTTPServer.Configuration.init(hostname: "127.0.0.1", port: port)
         default:
-            return HTTPServer.Configuration.init(hostname: "0.0.0.0", port: 8080)
+            return HTTPServer.Configuration.init(hostname: "0.0.0.0", port: port)
         }
     }
     

@@ -38,4 +38,4 @@ RUN swift package clean
 RUN swift build -c release
 RUN mv `swift build -c release --show-bin-path` /app/bin
 EXPOSE 8080
-ENTRYPOINT ./bin/release/app-content-service serve --env production --hostname 0.0.0.0 --port 8080
+ENTRYPOINT ./bin/release/app-content-service serve --env production --hostname 0.0.0.0 --port $PORT
