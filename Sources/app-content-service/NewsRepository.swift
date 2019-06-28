@@ -42,7 +42,11 @@ extension News {
         return [
             (
                 SemVer(major: 2, minor: 9, patch: 0),
-                [News.referrals(locale: locale)]
+                [
+                    News.referralsReward(locale: locale),
+                    News.referralsSpread(locale: locale),
+                    News.referralsKeen(locale: locale)
+                ]
             )
         ]
     }
@@ -51,16 +55,36 @@ extension News {
         return [
             (
                 SemVer(major: 2, minor: 9, patch: 0),
-                [News.referrals(locale: locale)]
+                [
+                    News.referralsReward(locale: locale),
+                    News.referralsSpread(locale: locale),
+                    News.referralsKeen(locale: locale)
+                ]
             )
         ]
     }
     
-    static func referrals(locale: Localization.Locale) -> News {
+    static func referralsReward(locale: Localization.Locale) -> News {
         return News(
-            illustration: Icon.bonusRain,
-            title: String(key: .NEWS_REFERRALS_HEADLINE, locale: locale),
-            paragraph: String(key: .NEWS_REFERRALS_BODY, locale: locale)
+            illustration: Icon.whatsNewReward,
+            title: String(key: .NEWS_REFERRALS_REWARD_MEMBERS_TITLE, locale: locale),
+            paragraph: String(key: .NEWS_REFERRALS_REWARD_MEMBERS_BODY, locale: locale)
+        )
+    }
+    
+    static func referralsSpread(locale: Localization.Locale) -> News {
+        return News(
+            illustration: Icon.whatsNewSpread,
+            title: String(key: .NEWS_REFERRALS_SHARE_LINK_TITLE, locale: locale),
+            paragraph: String(key: .NEWS_REFERRALS_SHARE_LINK_BODY, locale: locale)
+        )
+    }
+    
+    static func referralsKeen(locale: Localization.Locale) -> News {
+        return News(
+            illustration: Icon.whatsNewKeen,
+            title: String(key: .NEWS_REFERRALS_APP_TITLE, locale: locale),
+            paragraph: String(key: .NEWS_REFERRALS_APP_BODY, locale: locale)
         )
     }
 }
