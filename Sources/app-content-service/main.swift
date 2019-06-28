@@ -9,10 +9,12 @@ let schema = Schema<AppContentAPI, Request> {
     Localization.Locale.build()
     CommonClaim.build()
     News.build()
+    Welcome.build()
     
     Query {
         Field(.commonClaims, at: AppContentAPI.getCommonClaims)
         Field(.news, at: AppContentAPI.getNews)
+        Field(.welcome, at: AppContentAPI.getWelcome)
     }
 }
 
@@ -48,7 +50,7 @@ try Application(environment: .detect(), configure: { (services: inout Services) 
         try middleware.use(c.make(ErrorMiddleware.self))
         return middleware
     }
-    
+        
     services.register(HTTPServer.Configuration.self) { c in
         let port = Int(ProcessInfo.processInfo.environment["PORT"] ?? "8080")!
         

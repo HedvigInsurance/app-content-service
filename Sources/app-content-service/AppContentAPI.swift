@@ -15,6 +15,7 @@ struct AppContentAPI: FieldKeyProvider {
     enum FieldKeys: String {
         case commonClaims
         case news
+        case welcome
     }
     
     struct CommonClaimArguments: Codable {
@@ -40,6 +41,18 @@ struct AppContentAPI: FieldKeyProvider {
     func getNews(request: Request, arguments: NewsArguments) -> [News] {
         return NewsRepository.findSince(
             version: SemVer.parse(version: arguments.sinceVersion),
+            platform: arguments.platform,
+            locale: arguments.locale
+        )
+    }
+    
+    struct WelcomeArguments: Codable {
+        let platform: Platform
+        let locale: Localization.Locale
+    }
+    
+    func getWelcome(request: Request, arguments: WelcomeArguments) -> [Welcome] {
+        return WelcomeRepository.find(
             platform: arguments.platform,
             locale: arguments.locale
         )
