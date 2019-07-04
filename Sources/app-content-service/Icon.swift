@@ -51,7 +51,7 @@ extension Icon {
     static let bonusRain = Icon(name: "referrals_bonus_rain")
     static let whatsNewReward = Icon(name: "whats_new_reward")
     static let whatsNewSpread = Icon(name: "whats_new_spread")
-    static let whatsNewKeen = Icon(name: "whats_new_keen")
+    static let whatsNewKeen = Icon(name: "welcome_referrals")
     static let welcomeBalloons = Icon(name: "welcome_balloons")
     static let welcomeChat = Icon(name: "welcome_chat")
     static let welcomePaid = Icon(name: "welcome_paid")
