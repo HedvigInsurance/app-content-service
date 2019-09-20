@@ -41,7 +41,7 @@ extension News {
     static func iOSNews(locale: Localization.Locale) -> [(SemVer, [News])] {
         return [
             (
-                SemVer(major: 2, minor: 9, patch: 0),
+                SemVer(major: 2, minor: 8, patch: 0),
                 [
                     News.referralsReward(locale: locale),
                     News.referralsSpread(locale: locale),
