@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="343pt" height="300pt" viewBox="0 0 343 300" version="1.1">
+<defs>
+<clipPath id="clip1">
+  <path d="M 0 63 L 343 63 L 343 300 L 0 300 Z M 0 63 "/>
+</clipPath>
+<clipPath id="clip2">
+  <path d="M 171.5 300 C 53.355469 300 0 276.945312 0 211.5 C 0 146.054688 44.117188 63 138.832031 63 C 233.550781 63 343 139 343 181.5 C 343 224 289.644531 300 171.5 300 Z M 171.5 300 "/>
+</clipPath>
+<clipPath id="clip4">
+  <path d="M 171.5 237 C 53.355469 237 0 213.945312 0 148.5 C 0 83.054688 44.117188 0 138.832031 0 C 233.550781 0 343 76 343 118.5 C 343 161 289.644531 237 171.5 237 Z M 171.5 237 "/>
+</clipPath>
+<clipPath id="clip3">
+  <rect x="0" y="0" width="343" height="237"/>
+</clipPath>
+<g id="surface5" clip-path="url(#clip3)">
+<g clip-path="url(#clip4)" clip-rule="evenodd">
+<rect x="0" y="0" width="343" height="237" style="fill:rgb(78.431702%,67.451477%,4.31366%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip5">
+  <path d="M 43 0 L 301 0 L 301 288 L 43 288 Z M 43 0 "/>
+</clipPath>
+<clipPath id="clip6">
+  <path d="M 285 269.175781 L 285 35 C 285 21.746094 274.253906 11 261 11 L 83 11 C 69.746094 11 59 21.746094 59 35 L 59 287.347656 C 54.765625 285.972656 50.765625 284.480469 47 282.859375 L 47 180 L 45 180 C 43.894531 180 43 179.105469 43 178 L 43 142 C 43 140.894531 43.894531 140 45 140 L 47 140 L 47 132 L 45 132 C 43.894531 132 43 131.105469 43 130 L 43 94 C 43 92.894531 43.894531 92 45 92 L 47 92 L 47 32 C 47 14.328125 61.328125 0 79 0 L 265 0 C 282.671875 0 297 14.328125 297 32 L 297 92 L 299 92 C 300.105469 92 301 92.894531 301 94 L 301 170 C 301 171.105469 300.105469 172 299 172 L 297 172 L 297 260.476562 C 293.238281 263.480469 289.242188 266.390625 285 269.175781 Z M 285 269.175781 "/>
+</clipPath>
+<clipPath id="clip8">
+  <path d="M 242 269.175781 L 242 35 C 242 21.746094 231.253906 11 218 11 L 40 11 C 26.746094 11 16 21.746094 16 35 L 16 287.347656 C 11.765625 285.972656 7.765625 284.480469 4 282.859375 L 4 180 L 2 180 C 0.894531 180 0 179.105469 0 178 L 0 142 C 0 140.894531 0.894531 140 2 140 L 4 140 L 4 132 L 2 132 C 0.894531 132 0 131.105469 0 130 L 0 94 C 0 92.894531 0.894531 92 2 92 L 4 92 L 4 32 C 4 14.328125 18.328125 0 36 0 L 222 0 C 239.671875 0 254 14.328125 254 32 L 254 92 L 256 92 C 257.105469 92 258 92.894531 258 94 L 258 170 C 258 171.105469 257.105469 172 256 172 L 254 172 L 254 260.476562 C 250.238281 263.480469 246.242188 266.390625 242 269.175781 Z M 242 269.175781 "/>
+</clipPath>
+<clipPath id="clip7">
+  <rect x="0" y="0" width="258" height="288"/>
+</clipPath>
+<g id="surface8" clip-path="url(#clip7)">
+<g clip-path="url(#clip8)" clip-rule="evenodd">
+<rect x="0" y="0" width="258" height="288" style="fill:rgb(11.764526%,11.764526%,11.764526%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip9">
+  <path d="M 59 11 L 285 11 L 285 300 L 59 300 Z M 59 11 "/>
+</clipPath>
+<clipPath id="clip10">
+  <path d="M 285 269.175781 C 257.550781 287.203125 219.980469 300 171.5 300 C 123.605469 300 86.359375 296.210938 59 287.347656 L 59 35 C 59 21.746094 69.746094 11 83 11 L 261 11 C 274.253906 11 285 21.746094 285 35 Z M 285 269.175781 "/>
+</clipPath>
+<clipPath id="clip12">
+  <path d="M 226 258.175781 C 198.550781 276.203125 160.980469 289 112.5 289 C 64.605469 289 27.359375 285.210938 0 276.347656 L 0 24 C 0 10.746094 10.746094 0 24 0 L 202 0 C 215.253906 0 226 10.746094 226 24 Z M 226 258.175781 "/>
+</clipPath>
+<clipPath id="clip11">
+  <rect x="0" y="0" width="226" height="289"/>
+</clipPath>
+<g id="surface11" clip-path="url(#clip11)">
+<g clip-path="url(#clip12)" clip-rule="evenodd">
+<rect x="0" y="0" width="226" height="289" style="fill:rgb(0%,0%,0%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip13">
+  <path d="M 133 80 L 172 80 L 172 161 L 133 161 Z M 133 80 "/>
+</clipPath>
+<clipPath id="clip14">
+  <path d="M 133 145 L 133 80 L 172 96 L 172 161 Z M 133 145 "/>
+</clipPath>
+<clipPath id="clip16">
+  <path d="M 0 65 L 0 0 L 39 16 L 39 81 Z M 0 65 "/>
+</clipPath>
+<clipPath id="clip15">
+  <rect x="0" y="0" width="39" height="81"/>
+</clipPath>
+<g id="surface14" clip-path="url(#clip15)">
+<g clip-path="url(#clip16)" clip-rule="evenodd">
+<rect x="0" y="0" width="39" height="81" style="fill:rgb(16.470337%,95.294189%,75.686646%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip17">
+  <path d="M 172 80 L 211 80 L 211 161 L 172 161 Z M 172 80 "/>
+</clipPath>
+<clipPath id="clip18">
+  <path d="M 211 145 L 172 161 L 172 96 L 211 80 Z M 211 145 "/>
+</clipPath>
+<clipPath id="clip20">
+  <path d="M 39 65 L 0 81 L 0 16 L 39 0 Z M 39 65 "/>
+</clipPath>
+<clipPath id="clip19">
+  <rect x="0" y="0" width="39" height="81"/>
+</clipPath>
+<g id="surface17" clip-path="url(#clip19)">
+<g clip-path="url(#clip20)" clip-rule="evenodd">
+<rect x="0" y="0" width="39" height="81" style="fill:rgb(9.01947%,83.137512%,64.706421%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip21">
+  <path d="M 133 145 L 172 145 L 172 236 L 133 236 Z M 133 145 "/>
+</clipPath>
+<clipPath id="clip22">
+  <path d="M 133 219.660156 L 133 145 L 172 160.925781 L 172 236 Z M 133 219.660156 "/>
+</clipPath>
+<clipPath id="clip24">
+  <path d="M 0 74.660156 L 0 0 L 39 15.925781 L 39 91 Z M 0 74.660156 "/>
+</clipPath>
+<clipPath id="clip23">
+  <rect x="0" y="0" width="39" height="91"/>
+</clipPath>
+<g id="surface20" clip-path="url(#clip23)">
+<g clip-path="url(#clip24)" clip-rule="evenodd">
+<rect x="0" y="0" width="39" height="91" style="fill:rgb(35.68573%,10.588074%,90.196228%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip25">
+  <path d="M 172 145 L 211 145 L 211 236 L 172 236 Z M 172 145 "/>
+</clipPath>
+<clipPath id="clip26">
+  <path d="M 211 219.660156 L 172 236 L 172 160.925781 L 211 145 Z M 211 219.660156 "/>
+</clipPath>
+<clipPath id="clip28">
+  <path d="M 39 74.660156 L 0 91 L 0 15.925781 L 39 0 Z M 39 74.660156 "/>
+</clipPath>
+<clipPath id="clip27">
+  <rect x="0" y="0" width="39" height="91"/>
+</clipPath>
+<g id="surface23" clip-path="url(#clip27)">
+<g clip-path="url(#clip28)" clip-rule="evenodd">
+<rect x="0" y="0" width="39" height="91" style="fill:rgb(5.882263%,0%,47.842407%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip29">
+  <path d="M 133 64 L 211 64 L 211 96 L 133 96 Z M 133 64 "/>
+</clipPath>
+<clipPath id="clip30">
+  <path d="M 171.699219 64 L 211 80 L 172 96 L 133 80 Z M 171.699219 64 "/>
+</clipPath>
+<clipPath id="clip32">
+  <path d="M 38.699219 0 L 78 16 L 39 32 L 0 16 Z M 38.699219 0 "/>
+</clipPath>
+<clipPath id="clip31">
+  <rect x="0" y="0" width="78" height="32"/>
+</clipPath>
+<g id="surface26" clip-path="url(#clip31)">
+<g clip-path="url(#clip32)" clip-rule="evenodd">
+<rect x="0" y="0" width="78" height="32" style="fill:rgb(10.588074%,91.372681%,71.372986%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip33">
+  <path d="M 136 32 L 208 32 L 208 44 L 136 44 Z M 136 32 "/>
+</clipPath>
+<clipPath id="clip34">
+  <path d="M 138.464844 32 L 205.535156 32 C 206.898438 32 208 33.101562 208 34.464844 L 208 41.535156 C 208 42.898438 206.898438 44 205.535156 44 L 138.464844 44 C 137.101562 44 136 42.898438 136 41.535156 L 136 34.464844 C 136 33.101562 137.101562 32 138.464844 32 Z M 138.464844 32 "/>
+</clipPath>
+<clipPath id="clip36">
+  <path d="M 2.464844 0 L 69.535156 0 C 70.898438 0 72 1.101562 72 2.464844 L 72 9.535156 C 72 10.898438 70.898438 12 69.535156 12 L 2.464844 12 C 1.101562 12 0 10.898438 0 9.535156 L 0 2.464844 C 0 1.101562 1.101562 0 2.464844 0 Z M 2.464844 0 "/>
+</clipPath>
+<clipPath id="clip35">
+  <rect x="0" y="0" width="72" height="12"/>
+</clipPath>
+<g id="surface29" clip-path="url(#clip35)">
+<g clip-path="url(#clip36)" clip-rule="evenodd">
+<rect x="0" y="0" width="72" height="12" style="fill:rgb(31.37207%,31.37207%,31.37207%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip37">
+  <path d="M 98 256 L 248 256 L 248 268 L 98 268 Z M 98 256 "/>
+</clipPath>
+<clipPath id="clip38">
+  <path d="M 103.132812 256 L 242.867188 256 C 245.703125 256 248 257.101562 248 258.464844 L 248 265.535156 C 248 266.898438 245.703125 268 242.867188 268 L 103.132812 268 C 100.296875 268 98 266.898438 98 265.535156 L 98 258.464844 C 98 257.101562 100.296875 256 103.132812 256 Z M 103.132812 256 "/>
+</clipPath>
+<clipPath id="clip40">
+  <path d="M 5.132812 0 L 144.867188 0 C 147.703125 0 150 1.101562 150 2.464844 L 150 9.535156 C 150 10.898438 147.703125 12 144.867188 12 L 5.132812 12 C 2.296875 12 0 10.898438 0 9.535156 L 0 2.464844 C 0 1.101562 2.296875 0 5.132812 0 Z M 5.132812 0 "/>
+</clipPath>
+<clipPath id="clip39">
+  <rect x="0" y="0" width="150" height="12"/>
+</clipPath>
+<g id="surface32" clip-path="url(#clip39)">
+<g clip-path="url(#clip40)" clip-rule="evenodd">
+<rect x="0" y="0" width="150" height="12" style="fill:rgb(31.37207%,31.37207%,31.37207%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+<clipPath id="clip41">
+  <path d="M 227 32 L 267 32 L 267 44 L 227 44 Z M 227 32 "/>
+</clipPath>
+<clipPath id="clip42">
+  <path d="M 229.464844 32 L 264.535156 32 C 265.898438 32 267 33.101562 267 34.464844 L 267 41.535156 C 267 42.898438 265.898438 44 264.535156 44 L 229.464844 44 C 228.101562 44 227 42.898438 227 41.535156 L 227 34.464844 C 227 33.101562 228.101562 32 229.464844 32 Z M 229.464844 32 "/>
+</clipPath>
+<clipPath id="clip44">
+  <path d="M 2.464844 0 L 37.535156 0 C 38.898438 0 40 1.101562 40 2.464844 L 40 9.535156 C 40 10.898438 38.898438 12 37.535156 12 L 2.464844 12 C 1.101562 12 0 10.898438 0 9.535156 L 0 2.464844 C 0 1.101562 1.101562 0 2.464844 0 Z M 2.464844 0 "/>
+</clipPath>
+<clipPath id="clip43">
+  <rect x="0" y="0" width="40" height="12"/>
+</clipPath>
+<g id="surface35" clip-path="url(#clip43)">
+<g clip-path="url(#clip44)" clip-rule="evenodd">
+<rect x="0" y="0" width="40" height="12" style="fill:rgb(31.37207%,31.37207%,31.37207%);fill-opacity:1;stroke:none;"/>
+</g>
+</g>
+</defs>
+<g id="surface1">
+<g clip-path="url(#clip1)" clip-rule="nonzero">
+<g clip-path="url(#clip2)" clip-rule="evenodd">
+<use xlink:href="#surface5" transform="matrix(1,0,0,1,0,63)"/>
+</g>
+</g>
+<g clip-path="url(#clip5)" clip-rule="nonzero">
+<g clip-path="url(#clip6)" clip-rule="evenodd">
+<use xlink:href="#surface8" transform="matrix(1,0,0,1,43,0)"/>
+</g>
+</g>
+<g clip-path="url(#clip9)" clip-rule="nonzero">
+<g clip-path="url(#clip10)" clip-rule="evenodd">
+<use xlink:href="#surface11" transform="matrix(1,0,0,1,59,11)"/>
+</g>
+</g>
+<g clip-path="url(#clip13)" clip-rule="nonzero">
+<g clip-path="url(#clip14)" clip-rule="evenodd">
+<use xlink:href="#surface14" transform="matrix(1,0,0,1,133,80)"/>
+</g>
+</g>
+<g clip-path="url(#clip17)" clip-rule="nonzero">
+<g clip-path="url(#clip18)" clip-rule="evenodd">
+<use xlink:href="#surface17" transform="matrix(1,0,0,1,172,80)"/>
+</g>
+</g>
+<g clip-path="url(#clip21)" clip-rule="nonzero">
+<g clip-path="url(#clip22)" clip-rule="evenodd">
+<use xlink:href="#surface20" transform="matrix(1,0,0,1,133,145)"/>
+</g>
+</g>
+<g clip-path="url(#clip25)" clip-rule="nonzero">
+<g clip-path="url(#clip26)" clip-rule="evenodd">
+<use xlink:href="#surface23" transform="matrix(1,0,0,1,172,145)"/>
+</g>
+</g>
+<g clip-path="url(#clip29)" clip-rule="nonzero">
+<g clip-path="url(#clip30)" clip-rule="evenodd">
+<use xlink:href="#surface26" transform="matrix(1,0,0,1,133,64)"/>
+</g>
+</g>
+<g clip-path="url(#clip33)" clip-rule="nonzero">
+<g clip-path="url(#clip34)" clip-rule="evenodd">
+<use xlink:href="#surface29" transform="matrix(1,0,0,1,136,32)"/>
+</g>
+</g>
+<g clip-path="url(#clip37)" clip-rule="nonzero">
+<g clip-path="url(#clip38)" clip-rule="evenodd">
+<use xlink:href="#surface32" transform="matrix(1,0,0,1,98,256)"/>
+</g>
+</g>
+<g clip-path="url(#clip41)" clip-rule="nonzero">
+<g clip-path="url(#clip42)" clip-rule="evenodd">
+<use xlink:href="#surface35" transform="matrix(1,0,0,1,227,32)"/>
+</g>
+</g>
+</g>
+</svg>
