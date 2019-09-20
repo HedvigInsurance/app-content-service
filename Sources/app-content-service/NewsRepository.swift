@@ -47,6 +47,13 @@ extension News {
                     News.referralsSpread(locale: locale),
                     News.referralsKeen(locale: locale)
                 ]
+            ),
+            (
+                SemVer(major: 3, minor: 0, patch: 0),
+                [
+                    News.darkMode(locale: locale),
+                    locale == .en_SE ? News.englishSupport(locale: locale) : nil,
+                ].compactMap { $0 }
             )
         ]
     }
@@ -85,6 +92,22 @@ extension News {
             illustration: Icon.whatsNewKeen,
             title: String(key: .NEWS_REFERRALS_APP_TITLE, locale: locale),
             paragraph: String(key: .NEWS_REFERRALS_APP_BODY, locale: locale)
+        )
+    }
+    
+    static func englishSupport(locale: Localization.Locale) -> News {
+        return News(
+            illustration: Icon.whatsNewEnglish,
+            title: String(key: .NEWS_ENGLISH_APP_TITLE, locale: locale),
+            paragraph: String(key: .NEWS_ENGLISH_APP_BODY, locale: locale)
+        )
+    }
+    
+    static func darkMode(locale: Localization.Locale) -> News {
+        return News(
+            illustration: Icon.whatsNewDarkMode,
+            title: String(key: .NEWS_DARKMODE_APP_TITLE, locale: locale),
+            paragraph: String(key: .NEWS_DARKMODE_APP_BODY, locale: locale)
         )
     }
 }
