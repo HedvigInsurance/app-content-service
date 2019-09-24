@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "async-http-client",
+        "repositoryURL": "https://github.com/swift-server/async-http-client.git",
+        "state": {
+          "branch": null,
+          "revision": "1b31c5a4e381f0a7119c9a41d814cf8f3183a9f7",
+          "version": "1.0.0-alpha.3"
+        }
+      },
+      {
         "package": "async-kit",
         "repositoryURL": "https://github.com/vapor/async-kit.git",
         "state": {
@@ -15,8 +24,8 @@
         "repositoryURL": "https://github.com/vapor/console-kit.git",
         "state": {
           "branch": null,
-          "revision": "252a8b8e22cc70ebe8a073b241b7275a3b3880d9",
-          "version": "4.0.0-alpha.1"
+          "revision": "00ce1abaac919593897b6c60cecdbd4d6290b1f9",
+          "version": "4.0.0-alpha.2.1"
         }
       },
       {
@@ -26,15 +35,6 @@
           "branch": null,
           "revision": "95f911318d8c885f6fc05e971471f94adfd39405",
           "version": "2.1.2"
-        }
-      },
-      {
-        "package": "crypto-kit",
-        "repositoryURL": "https://github.com/vapor/crypto-kit.git",
-        "state": {
-          "branch": null,
-          "revision": "9d5e780ad8f621e14226f0c2824648a9c062d37c",
-          "version": "4.0.0-alpha.1"
         }
       },
       {
@@ -56,12 +56,12 @@
         }
       },
       {
-        "package": "nio-websocket-client",
-        "repositoryURL": "https://github.com/vapor/nio-websocket-client.git",
+        "package": "open-crypto",
+        "repositoryURL": "https://github.com/vapor/open-crypto.git",
         "state": {
           "branch": null,
-          "revision": "3e515024c4c9eab6adb1ab516be15777a28a233e",
-          "version": "1.0.0-alpha.1"
+          "revision": "06d26edb8e28295bb7103b4f950d5ea58d634c1b",
+          "version": "4.0.0-alpha.2"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": null,
-          "revision": "f4240bf022a69815241a883c03645444b58ac553",
-          "version": "1.1.0"
+          "revision": "e8aabbe95db22e064ad42f1a4a9f8982664c70ed",
+          "version": "1.1.1"
         }
       },
       {
@@ -96,8 +96,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "ed50f8a41ece8db20afa8d1188fc0960f95263df",
-          "version": "2.2.0"
+          "revision": "9201908b54578aa33f1d1826a5a680aca8991843",
+          "version": "2.8.0"
         }
       },
       {
@@ -105,17 +105,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-extras.git",
         "state": {
           "branch": null,
-          "revision": "96e8335180ca61c7187efe47058a1c99eadaf265",
-          "version": "1.1.0"
-        }
-      },
-      {
-        "package": "swift-nio-http-client",
-        "repositoryURL": "https://github.com/vapor/swift-nio-http-client.git",
-        "state": {
-          "branch": null,
-          "revision": "93682abeb568b3df47f0744558c4436bb325f860",
-          "version": "0.0.0"
+          "revision": "66f9a509ed3cc56b6eb367515e421beca4a0af53",
+          "version": "1.2.0"
         }
       },
       {
@@ -123,8 +114,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-http2.git",
         "state": {
           "branch": null,
-          "revision": "c2638ff60910a0d468ff9a882c8586a827da1a0d",
-          "version": "1.2.1"
+          "revision": "790cf6fd2b899e0b10cf462389556475ead81dbf",
+          "version": "1.6.1"
         }
       },
       {
@@ -132,8 +123,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "dc23a24fbe5d59429eacf45a9add82fdf6ab90e6",
-          "version": "2.1.0"
+          "revision": "f5dd7a60ff56f501ff7bf9be753e4b1875bfaf20",
+          "version": "2.4.0"
         }
       },
       {
@@ -150,8 +141,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "95d6c7e2899bb1979a708150d9390e2795b5ae19",
-          "version": "4.0.0-alpha.1.2"
+          "revision": "17c5ca37a4d70cde7c23b7eb2f7037724fa28899",
+          "version": "4.0.0-alpha.3.1.1"
         }
       }
     ]
