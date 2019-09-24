@@ -24,8 +24,6 @@ final class AssetsMiddleware: Middleware {
     public func respond(to req: Request, chainingTo next: Responder) -> EventLoopFuture<Response> {
         // make a copy of the path
         var path = req.url.path
-
-        print(path)
         
         let approvedPath = "app-content-service/"
 
@@ -48,9 +46,7 @@ final class AssetsMiddleware: Middleware {
         
         // create absolute file path
         let filePath = publicDirectory + path
-        
-        print(filePath)
-        
+                
         // check if file exists and is not a directory
         var isDir: ObjCBool = false
         guard FileManager.default.fileExists(atPath: filePath, isDirectory: &isDir), !isDir.boolValue else {
