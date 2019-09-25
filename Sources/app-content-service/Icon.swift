@@ -111,6 +111,8 @@ extension Icon {
     static let whatsNewKeen = Icon(name: "whats_new_keen")
     static let whatsNewDarkMode = Icon(name: "whats_new_darkmode")
     static let whatsNewEnglish = Icon(name: "whats_new_english")
+    static let whatsNewPayment = Icon(name: "whats_new_payment")
+    
     static let welcomeBalloons = Icon(name: "welcome_balloons")
     static let welcomeChat = Icon(name: "welcome_chat")
     static let welcomePaid = Icon(name: "welcome_paid")
