@@ -32,7 +32,12 @@ public func routes(_ r: Routes, _ c: Container) throws {
     try GraphQLServer(
         schema: schema,
         getContext: { $0 },
-        getRootValue: { _ in api }
+        getRootValue: { req in
+            if let graphqlRequest = req.body.string {
+                print(graphqlRequest)
+            }
+            return api
+        }
     ).run(r)
 }
 
