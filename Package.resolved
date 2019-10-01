@@ -83,6 +83,15 @@
         }
       },
       {
+        "package": "swift-backtrace",
+        "repositoryURL": "https://github.com/ianpartridge/swift-backtrace.git",
+        "state": {
+          "branch": "master",
+          "revision": "feaee74aa6e44a1154f2051ceeb354e2c53ccb2c",
+          "version": null
+        }
+      },
+      {
         "package": "swift-log",
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {

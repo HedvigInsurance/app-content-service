@@ -2,6 +2,9 @@ import Foundation
 import Graphiti
 import Vapor
 import SwiftGraphQLServer
+import Backtrace
+
+Backtrace.install()
 
 let schema = Schema<AppContentAPI, Request> {
     Icon.build()
@@ -73,4 +76,5 @@ try Application(environment: .detect(), configure: { (services: inout Services) 
         try routes(r, c)
     }
 }).run()
+
 
