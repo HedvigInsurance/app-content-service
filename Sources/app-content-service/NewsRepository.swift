@@ -67,6 +67,14 @@ extension News {
                     News.referralsSpread(locale: locale),
                     News.referralsKeen(locale: locale)
                 ]
+            ),
+            (
+                SemVer(major: 3, minor: 1, patch: 0),
+                [
+                    News.darkMode(locale: locale),
+                    locale == .en_SE ? News.englishSupport(locale: locale) : nil,
+                    News.newPaymentScreen(locale: locale)
+                ].compactMap { $0 }
             )
         ]
     }
@@ -108,6 +116,14 @@ extension News {
             illustration: Icon.whatsNewDarkMode,
             title: String(key: .NEWS_DARKMODE_APP_TITLE, locale: locale),
             paragraph: String(key: .NEWS_DARKMODE_APP_BODY, locale: locale)
+        )
+    }
+    
+    static func newPaymentScreen(locale: Localization.Locale) -> News {
+        return News(
+            illustration: Icon.whatsNewPayment,
+            title: String(key: .NEWS_PAYMENTS_SCREEN_APP_TITLE, locale: locale),
+            paragraph: String(key: .NEWS_PAYMENTS_SCREEN_APP_BODY, locale: locale)
         )
     }
 }
